@@ -4,7 +4,7 @@
 
 Minclude is a lightweight JavaScript-loader (283 bytes) making it super-easy to dynamically embed your scripts.
 You simply pass an array with your scripts to `Minclude`. That's it.<br>
-If you load your scripts from a CDN, you can optionally add another array with fallback-scripts.
+If you load your scripts via a CDN, you might optionally add another array with fallback-scripts.
  
 #### See how it's done
  
