@@ -27,4 +27,4 @@ Minclude(
 #### Cross-browser
 
 Minclude is based on the [Promises](http://caniuse.com/#feat=promises)-structure which only works in modern browsers.<br>
-However, you can also use Minclude if your browser won't support Promises.
+However, you can use Minclude if your browser won't support Promises.
