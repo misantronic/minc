@@ -4,7 +4,7 @@
   "description": "A tiny JavaScript-loader for most browsers.",
   "main": "minclude.min.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "dalek test/tests.js"
   },
   "repository": {
     "type": "git",
@@ -17,6 +17,11 @@
   },
   "devDependencies": {
     "grunt": "~0.4.5",
-    "grunt-contrib-uglify": "~0.6.0"
+    "grunt-contrib-uglify": "~0.6.0",
+    "grunt-dalek": "~0.2.0",
+    "dalekjs": "0.0.8",
+    "dalek-browser-firefox": "0.0.6",
+    "dalek-browser-chrome": "0.0.10",
+    "dalek-browser-ie": "0.0.4"
   }
 }
