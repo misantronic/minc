@@ -24,12 +24,13 @@ Minc = function(a, b, i) {
 		!function l(c, d, g, h) {
 			with(document)
 				(d=createElement('script')).src = c.replace(/https*:/, ""),
-				head.appendChild(d),
-				d.onload = d.onreadystatechange = d.onerror = function(e) {
+				getElementsByTagName('head')[0].appendChild(d),
+				d.onload = d[h="onreadystatechange"] = d.onerror = function(e) {
+					e = e || this;
 					e.type == 'error' && b[i]
 						? l(b[i])
-						: !h && e.type == 'load' || e[g="readyState"] == 'loaded' || e[g] == 'complete' ?
-						h=1&&a[++i] ? l(a[i]) : r && r() : 0
+						: e.type == 'load' || e[g="readyState"] == 'loaded' || e[g] == 'complete' ?
+						d[h]=null || a[++i] ? l(a[i]) : r && r() : 0
 				}
 		}(a[i=0])
 

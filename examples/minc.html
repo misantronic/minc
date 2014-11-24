@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<title>minc</title>
 </head>
-<body>
+<body style="background-color: #C00">
 	<script src="../src/minc.js"></script>
 	<script>
 		Minc(
@@ -17,7 +17,9 @@
 				'lib/jquery-1.11.0.js'
 			]
 		).done(function() {							// callback
-			document.body.innerHTML = '<div id="done">done!</div>';
+			document.body.innerHTML = '<h1 id="done">Success!</h1>';
+			document.body.style.backgroundColor = '#0C0';
+			document.body.style.color = '#FFF';
 		});
 	</script>
 </body>
