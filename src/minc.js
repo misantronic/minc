@@ -20,7 +20,6 @@ Minc = function(a, b, i) {
 		 *
 		 * @param {String} c
 		 * @param [d] placeholder
-		 * @param [g] placeholder
 		 */
 		!function l(c, d, g) {
 			with(document)
@@ -29,9 +28,8 @@ Minc = function(a, b, i) {
 				d.onload = d.onreadystatechange = d.onerror = function(e) {
 					e.type == 'error' && b[i]
 						? l(b[i])
-						: e.type == 'load' || e[g="readyState"] == 'loaded' || e[g] == 'complete'
-						? a[++i] ? l(a[i]) : r && r()
-						: false
+						: e.type == 'load' || e[g="readyState"] == 'loaded' || e[g] == 'complete' ?
+						a[++i] ? l(a[i]) : r && r() : 0
 				}
 		}(a[i=0])
 
