@@ -6,7 +6,7 @@
  * @returns {Function}
  * @constructor
  */
-Minclude = function(a, b, i) {
+Minc = function(a, b, i) {
 	return (function _(r) {
 		/**
 		 * Success method when all scripts are loaded

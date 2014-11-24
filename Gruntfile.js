@@ -10,7 +10,7 @@ module.exports = function(grunt) {
 
 			projects: {
 				files: {
-					'minclude.min.js'				: ['minclude.js']
+					'minc.min.js'	: ['minc.js']
 				}
 			}
 		},
@@ -21,12 +21,6 @@ module.exports = function(grunt) {
 				"browsers": [{
 					"chrome": {
 						"port": 5555
-					},
-					"firefox": {
-						"port": 5555
-					},
-					"ie": {
-						"port": 6555
 					}
 				}]
 			},
