@@ -21,12 +21,16 @@ Minc = function(a, b, i) {
 		 * @param {String} c
 		 * @param [d] placeholder
 		 */
-		!function l(c, d){
+		!function l(c, d) {
 			with(document)
 				(d=createElement('script')).src = c.replace(/https*:/, ""),
 				head.appendChild(d),
-				d.onload=d.onerror=function(e) {
-					e.type == 'error' && b[i] ? l(b[i]) : a[++i] ? l(a[i]) : r&&r()
+				d.onload = d.onreadystatechange = d.onerror = function(e) {
+					e.type == 'error' && b[i]
+						? l(b[i])
+						: e.type == 'load' || e.readyState == 'loaded' || e.readyState == 'complete'
+						? a[++i] ? l(a[i]) : r && r()
+						: false
 				}
 		}(a[i=0])
 
