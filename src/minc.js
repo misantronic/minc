@@ -14,7 +14,7 @@ Minc = function(a, b, i) {
 		 */
 		_.done = function(c) {
 			r = c
-		}
+		};
 
 		/**
 		 *
@@ -32,8 +32,8 @@ Minc = function(a, b, i) {
 						: e.type == 'load' || e[g="readyState"] == 'loaded' || e[g] == 'complete' ?
 						d[h]=null || a[++i] ? l(a[i]) : r && r() : 0
 				}
-		}(a[i=0])
+		}(a[i=0]);
 
 		return _
 	})()
-}
+};
