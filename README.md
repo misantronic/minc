@@ -28,4 +28,4 @@ Minc(
 
 Minc is based on the [Promises](http://caniuse.com/#feat=promises)-structure which only works in modern browsers.<br>
 However, you can use Minc if your browser won't support Promises.<br>
-Minc runs in **every browser** on almost **every device** (down to Firefox 3.6 and Internet Explorer 6, tested with [browserstack.com](http://www.browserstack.com).
+Minc runs in **every browser** on **every device** (works with any device/browser at [browserstack.com](http://www.browserstack.com) except Firefox 3.6 and Internet Explorer 6).
