@@ -32,7 +32,7 @@ Minc runs in **every browser** on **every device** (tested with all devices/brow
 
 #### AMD (Asynchronous Module Definition)
 
-At the moment, Minc partially supports modular JS using the `define()` method.<br>
+At the moment, Minc partially supports Asynchronous Module Definition using the `define()` method.<br>
 [Read more about AMD](http://addyosmani.com/writing-modular-js/).
 
 ```javascript
