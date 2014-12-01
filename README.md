@@ -30,7 +30,7 @@ Minc is based on the [Promises](http://caniuse.com/#feat=promises)-structure whi
 However, you can use Minc if your browser won't support Promises.<br>
 Minc runs in **every browser** on **every device** (tested with all devices/browsers at [browserstack.com](http://www.browserstack.com/screenshots)).
 
-#### AMD
+#### AMD (Asynchronous Module Definition)
 
 At the moment, Minc partially supports modular JS using the `define()` method.<br>
 [Read more about AMD](http://addyosmani.com/writing-modular-js/).
