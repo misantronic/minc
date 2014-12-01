@@ -21,14 +21,17 @@
 		Minc(
 			[										// load a bunch of scripts
 				'//code.jquery.com/jquery-2.1.0.js',
-				'//code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js'
+				'//code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.js',
+				'//code.jquery.com/qunit/qunit-1.15.0.js'
 			],
 			[										// fallback scripts
 				'lib/jquery-2.1.0.js',
 				'lib/jquery.mobile-1.4.5.min.js'
 			]
-		).done(function() {							// callback
-			document.body.className = 'success';
+		).done(function($, mobile) {							// callback
+			console.log("jQuery", $);
+			console.log("jQuery Mobile", mobile);
+			$('body').addClass('success');
 		});
 
 		document.body.innerHTML = navigator.userAgent;

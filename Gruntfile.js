@@ -5,7 +5,9 @@ module.exports = function(grunt) {
 
 		uglify: {
 			options: {
-				mangle: false
+				mangle: {
+					except: ['Minc']
+				}
 			},
 
 			projects: {
