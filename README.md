@@ -26,8 +26,6 @@ Minc(
 
 #### Cross-browser
 
-Minc is based on the [Promises](http://caniuse.com/#feat=promises)-structure which only works in modern browsers.<br>
-However, you can use Minc if your browser won't support Promises.<br>
 Minc runs in **every browser** on **every device** (tested with all devices/browsers at [browserstack.com](http://www.browserstack.com/screenshots)).
 
 #### AMD (Asynchronous Module Definition)
