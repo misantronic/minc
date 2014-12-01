@@ -18,9 +18,10 @@ Minc(
 		'lib/jquery-2.1.0.js',
 		'src/myCoolApp.min.js'
 	]
-).done(function() {							// callback, when scripts are being loaded
+).done(function($, myApp) {					// callback, when scripts are being loaded
 	// entry point
-	myCoolApp.init();
+	$('body').addClass('success');
+	myApp.init();
 });
 ```
 
@@ -32,15 +33,3 @@ Minc runs in **every browser** on **every device** (tested with all devices/brow
 
 At the moment, Minc partially supports Asynchronous Module Definition using the `define()` method.<br>
 [Read more about AMD](http://addyosmani.com/writing-modular-js/).
-
-```javascript
-Minc(
-	[
-		'//code.jquery.com/jquery-2.1.0.js',
-		'//code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.js'
-	]
-).done(function($, mobile) {
-	console.log("jQuery", $);
-	console.log("jQuery Mobile", mobile);
-});
-```
