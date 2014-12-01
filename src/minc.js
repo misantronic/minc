@@ -25,43 +25,49 @@ Minc = function(a, b, i) {
 		 * @param [d] placeholder
 		 * @param [g] placeholder
 		 * @param [h] placeholder
+		 * @param [o] placeholder
 		 */
-		!function l(c, d, g, h) {
+		!function l(c, d, g, h, o) {
 			// AMD define()
 			(define =
 				/**
 				 *
-				 * @param {String|Array} x moduleName or dependencies
+				 * @param {Function|String|Array} x Module function or moduleName or dependencies
 				 * @param {Function|Array} y Module function or dependencies
 				 * @param {Function|undefined} z Module function or undefined
+				 * @param [C] placeholder
 				 */
-				function(x, y, z) {
-				// check multi-use of parameters
-				if(x.map) {
-					z = y;
-					y = x;
-					x = "";
-				}
+				function(x, y, z, c, C) {
+					C = console;
+					try {
+						// check multi-use of parameters
+						x.call ? (z = x, x = "", y = []) : x.map && (z = y, y = x, x = "");
 
-				// save module
-				m[i] = { i: x, d: y, m: z };
+						// save module
+						m[i] = { i: x, d: y, m: z };
 
-				if(0 in y) {
-					// parse dependencies
-					for(d=y.length, h = []; d--;) {
-						// parse modules
-						for(g=m.length; g--;)
-							if(y[d] == m[g].i)
-								h.push(m[g].m());
+						if(0 in y)
+						// parse dependencies
+							for(d=y.length, o = []; d--;) {
+								// parse modules
+								for(g=m.length; g--;)
+									if(y[d] == m[g].i)
+										o.push(m[g].m());
+
+								// validate dependencies
+								y.length != o.length && C && C.log("Modules missing", y)
+
+								// assign module callback
+								M[i] = z.apply(window, o);
+							}
+						else
 						// assign module callback
-						M[i] = z.apply(window, h);
-					}
-				} else {
-					// assign module callback
-					M[i] = z()
+							M[i] = z()
+					} catch(e) { C && C.log(e) }
 				}
-			}).amd = 1;
+			).amd = 1;
 
+			// load script
 			with(document)
 				(d=createElement('script')).src = c.replace(/https*:/, ""),
 				getElementsByTagName('head')[0].appendChild(d),
