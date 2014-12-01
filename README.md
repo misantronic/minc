@@ -6,7 +6,7 @@ Minc is a lightweight JavaScript-loader (635 bytes) making it super-easy to dyna
 You simply pass an array with your scripts to `Minc`. That's it.<br>
 If you load your scripts via a CDN, you might optionally add another array with fallback-scripts.
  
-#### See how it's done
+#### How it's done
  
 ```javascript
 Minc(
