@@ -3,13 +3,15 @@
  * @param {Array} a An Array containing the URLs/Paths to your scripts
  * @param {Array} [b] An Array containing the URLs/Paths to you fallback-scripts
  * @param [i] placeholder
+ * @param [C] placeholder
  * @returns {Function}
  * @constructor
  */
-Minc = function(a, b, i) {
+Minc = function(a, b, i, C) {
 	return (function _(r, m, M) {
 		m = [];
 		M = [];
+		C = console;
 
 		/**
 		 * Success method when all scripts are loaded
@@ -19,29 +21,26 @@ Minc = function(a, b, i) {
 			r = c
 		};
 
-		/**
-		 *
-		 * @param {String} c
-		 * @param [d] placeholder
-		 * @param [g] placeholder
-		 * @param [h] placeholder
-		 * @param [o] placeholder
-		 */
-		!function l(c, d, g, h, o) {
-			// AMD define()
-			(window.define =
-				/**
-				 *
-				 * @param {Function|String|Array} x Module function or moduleName or dependencies
-				 * @param {Function|Array} y Module function or dependencies
-				 * @param {Function|undefined} z Module function or undefined
-				 * @param [C] placeholder
-				 * @param [L] placeholder length of y
-				 */
-				function(x, y, z, C, L) {
-					C = console;
-
-					try {
+		try {
+			/**
+			 *
+			 * @param {String} c
+			 * @param [d] placeholder
+			 * @param [g] placeholder
+			 * @param [h] placeholder
+			 * @param [o] placeholder
+			 */
+			!function l(c, d, g, h, o) {
+				// AMD define()
+				(window.define =
+					/**
+					 *
+					 * @param {Function|String|Array} x Module function or moduleName or dependencies
+					 * @param {Function|Array} y Module function or dependencies
+					 * @param {Function|undefined} z Module function or undefined
+					 * @param [L] placeholder length of y
+					 */
+					function(x, y, z, L) {
 						// check multi-use of parameters
 						x.call ? (z = x, x = "", y = []) : x.pop && (z = y, y = x, x = "");
 
@@ -61,21 +60,21 @@ Minc = function(a, b, i) {
 							}
 						else 								// assign module callback
 							M[i] = z()
-					} catch(e) { C && C.log(e) }
-				}
-			).amd = 1;
+					}
+				).amd = 1;
 
-			// load script
-			with(document)
-				(d=createElement('script')).src = c.replace(/https*:/, ""),
-				d.onload = d[h="onreadystatechange"] = d.onerror = function(e) {
-					(e = e || this).type == 'error' && b[i]
-						? l(b[i])
-						: e.type == 'load' || e[g="readyState"] == 'loaded' || e[g] == 'complete' ?
-						a[++i] ? l(a[i]) : r && r.apply(_, M) : 0
-				},
-				getElementsByTagName('head')[0].appendChild(d)
-		}(a[i=0]);
+				// load script
+				with(document)
+					(d=createElement('script')).src = c.replace(/https*:/, ""),
+					d.onload = d[h="onreadystatechange"] = d.onerror = function(e) {
+						(e = e || this).type == 'error' && b[i]
+							? l(b[i])
+							: e.type == 'load' || e[g="readyState"] == 'loaded' || e[g] == 'complete' ?
+							a[++i] ? l(a[i]) : r && r.apply(_, M) : 0
+					},
+					getElementsByTagName('head')[0].appendChild(d)
+			}(a[i=0]);
+		} catch(e) { C && C.log(e) }
 
 		return _
 	})()
