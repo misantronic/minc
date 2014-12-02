@@ -25,14 +25,10 @@
 				'lib/test-lib.js'
 			]
 		).done(function($, mobile, Test) {			// callback
-			console.log("jQuery "+ $);
-			console.log("jQuery Mobile " + mobile);
-			console.log("test lib "+ Test);
+			Test && Test();
 
-			$('body').addClass('success');
+			$ && $('body').addClass('success');
 		});
-
-		document.body.innerHTML = navigator.userAgent;
 	</script>
 </body>
 </html>
