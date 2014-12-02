@@ -2,16 +2,15 @@
  *
  * @param {Array} a An Array containing the URLs/Paths to your scripts
  * @param {Array} [b] An Array containing the URLs/Paths to you fallback-scripts
- * @param [i] placeholder
- * @param [C] placeholder
  * @returns {Function}
  * @constructor
  */
-Minc = function(a, b, i, C) {
-	return (function _(r, m, M) {
-		m = [];
-		M = [];
-		C = console;
+Minc = function(a, b) {
+	return (function _(w) {
+		var r, i,
+			m = [],
+			M = [],
+			C = w.console;
 
 		/**
 		 * Success method when all scripts are loaded
@@ -32,7 +31,7 @@ Minc = function(a, b, i, C) {
 			 */
 			!function l(c, d, g, h, o) {
 				// AMD define()
-				(window.define =
+				(w.define =
 					/**
 					 *
 					 * @param {Function|String|Array} x Module function or moduleName or dependencies
@@ -56,7 +55,7 @@ Minc = function(a, b, i, C) {
 								L != o.length && 			// validate dependencies
 								C && C.log("Modules missing", y)
 
-								M[i] = z.apply(window, o);	// assign module callback
+								M[i] = z.apply(w, o);		// assign module callback
 							}
 						else 								// assign module callback
 							M[i] = z()
@@ -77,5 +76,5 @@ Minc = function(a, b, i, C) {
 		} catch(e) { C && C.log(e) }
 
 		return _
-	})()
+	})(window)
 };
