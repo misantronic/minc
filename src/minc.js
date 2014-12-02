@@ -28,40 +28,39 @@ Minc = function(a, b, i) {
 		 * @param [o] placeholder
 		 */
 		!function l(c, d, g, h, o) {
+			console.log("loading "+ c);
 			// AMD define()
-			(define =
+			(window.define =
 				/**
 				 *
 				 * @param {Function|String|Array} x Module function or moduleName or dependencies
 				 * @param {Function|Array} y Module function or dependencies
 				 * @param {Function|undefined} z Module function or undefined
 				 * @param [C] placeholder
+				 * @param [L] placeholder length of y
 				 */
-				function(x, y, z, c, C) {
+				function(x, y, z, C, L) {
 					C = console;
+
 					try {
 						// check multi-use of parameters
-						x.call ? (z = x, x = "", y = []) : x.map && (z = y, y = x, x = "");
+						x.call ? (z = x, x = "", y = []) : x.pop && (z = y, y = x, x = "");
 
 						// save module
 						m[i] = { i: x, d: y, m: z };
 
-						if(0 in y)
-						// parse dependencies
-							for(d=y.length, o = []; d--;) {
-								// parse modules
-								for(g=m.length; g--;)
+						if(L=y.length)
+							for(d=L, o = []; d--;) { 		// parse dependencies
+								for(g=m.length; g--;) 		// parse modules
 									if(y[d] == m[g].i)
 										o.push(m[g].m());
 
-								// validate dependencies
-								y.length != o.length && C && C.log("Modules missing", y)
+								L != o.length && 			// validate dependencies
+								C && C.log("Modules missing", y)
 
-								// assign module callback
-								M[i] = z.apply(window, o);
+								M[i] = z.apply(window, o);	// assign module callback
 							}
-						else
-						// assign module callback
+						else 								// assign module callback
 							M[i] = z()
 					} catch(e) { C && C.log(e) }
 				}
@@ -70,14 +69,13 @@ Minc = function(a, b, i) {
 			// load script
 			with(document)
 				(d=createElement('script')).src = c.replace(/https*:/, ""),
-				getElementsByTagName('head')[0].appendChild(d),
 				d.onload = d[h="onreadystatechange"] = d.onerror = function(e) {
-					e = e || this;
-					e.type == 'error' && b[i]
+					(e = e || this).type == 'error' && b[i]
 						? l(b[i])
 						: e.type == 'load' || e[g="readyState"] == 'loaded' || e[g] == 'complete' ?
-						d[h]=null || a[++i] ? l(a[i]) : r && r.apply(_, M) : 0
-				}
+						a[++i] ? l(a[i]) : r && r.apply(_, M) : 0
+				},
+				getElementsByTagName('head')[0].appendChild(d)
 		}(a[i=0]);
 
 		return _

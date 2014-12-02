@@ -2,7 +2,7 @@
 
 > A tiny cross-browser JavaScript-loader.
 
-Minc is a lightweight JavaScript-loader (750 bytes) making it super-easy to dynamically embed your scripts.
+Minc is a lightweight JavaScript-loader (768 bytes) making it super-easy to dynamically embed your scripts.
 You simply pass an array with your scripts to `Minc`. That's it.<br>
 If you load your scripts via a CDN, you might optionally add another array with fallback-scripts.
  
