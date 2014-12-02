@@ -8,6 +8,7 @@
 Minc = function(a, b) {
 	return (function _(w) {
 		var r, i,
+			g = "readyState",
 			m = [],
 			M = [],
 			C = w.console;
@@ -25,11 +26,9 @@ Minc = function(a, b) {
 			 *
 			 * @param {String} c
 			 * @param [d] placeholder
-			 * @param [g] placeholder
-			 * @param [h] placeholder
 			 * @param [o] placeholder
 			 */
-			!function l(c, d, g, h, o) {
+			!function l(c, d, o) {
 				// AMD define()
 				(w.define =
 					/**
@@ -65,10 +64,10 @@ Minc = function(a, b) {
 				// load script
 				with(document)
 					(d=createElement('script')).src = c.replace(/https*:/, ""),
-					d.onload = d[h="onreadystatechange"] = d.onerror = function(e) {
+					d.onload = d.onreadystatechange = d.onerror = function(e) {
 						(e = e || this).type == 'error' && b[i]
 							? l(b[i])
-							: e.type == 'load' || e[g="readyState"] == 'loaded' || e[g] == 'complete' ?
+							: e.type == 'load' || e[g] == 'loaded' || e[g] == 'complete' ?
 							a[++i] ? l(a[i]) : r && r.apply(_, M) : 0
 					},
 					getElementsByTagName('head')[0].appendChild(d)
