@@ -1,5 +1,5 @@
 /**
- *
+ * minc.js
  * @param {Array} a An Array containing the URLs/Paths to your scripts
  * @param {Array} [b] An Array containing the URLs/Paths to you fallback-scripts
  * @returns {Function}
@@ -7,11 +7,11 @@
  */
 Minc = function(a, b) {
 	return (function _(w) {
-		var r, i,
+		var r, i, L,
 			g = "readyState",
 			m = [],
 			M = [],
-			C = w.console;
+			c = w.console;
 
 		/**
 		 * Success method when all scripts are loaded
@@ -22,13 +22,7 @@ Minc = function(a, b) {
 		};
 
 		try {
-			/**
-			 *
-			 * @param {String} c
-			 * @param [d] placeholder
-			 * @param [o] placeholder
-			 */
-			!function l(c, d, o) {
+			!function l(s, d, o) {
 				// AMD define()
 				(w.define =
 					/**
@@ -36,9 +30,8 @@ Minc = function(a, b) {
 					 * @param {Function|String|Array} x Module function or moduleName or dependencies
 					 * @param {Function|Array} y Module function or dependencies
 					 * @param {Function|undefined} z Module function or undefined
-					 * @param [L] placeholder length of y
 					 */
-					function(x, y, z, L) {
+					function(x, y, z) {
 						// check multi-use of parameters
 						x.call ? (z = x, x = "", y = []) : x.pop && (z = y, y = x, x = "");
 
@@ -52,7 +45,7 @@ Minc = function(a, b) {
 										o.push(m[g].m());
 
 								L != o.length && 			// validate dependencies
-								C && C.log("Modules missing", y)
+								c && c.log("Modules missing", y)
 
 								M[i] = z.apply(w, o);		// assign module callback
 							}
@@ -63,7 +56,7 @@ Minc = function(a, b) {
 
 				// load script
 				with(document)
-					(d=createElement('script')).src = c.replace(/https*:/, ""),
+					(d=createElement('script')).src = s.replace(/https*:/, ""),
 					d.onload = d.onreadystatechange = d.onerror = function(e) {
 						(e = e || this).type == 'error' && b[i]
 							? l(b[i])
@@ -72,7 +65,7 @@ Minc = function(a, b) {
 					},
 					getElementsByTagName('head')[0].appendChild(d)
 			}(a[i=0]);
-		} catch(e) { C && C.log(e) }
+		} catch(e) { c && c.log(e) }
 
 		return _
 	})(window)
