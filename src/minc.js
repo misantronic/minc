@@ -28,7 +28,6 @@ Minc = function(a, b, i) {
 		 * @param [o] placeholder
 		 */
 		!function l(c, d, g, h, o) {
-			console.log("loading "+ c);
 			// AMD define()
 			(window.define =
 				/**
