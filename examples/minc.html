@@ -3,17 +3,6 @@
 <head lang="en">
 	<meta charset="UTF-8">
 	<title>minc.js</title>
-	<style>
-		body {
-			background-color: #A00;
-			color: #FFF;
-			font-family: sans-serif;
-		}
-
-		body.success {
-			background-color: #0A0;
-		}
-	</style>
 </head>
 <body>
 	<script src="../src/minc.js"></script>
@@ -21,10 +10,11 @@
 		Minc(
 			[										// load a bunch of scripts
 				'//code.jquery.com/jquery-1.11.0.js',
-				'//code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js',
+				'lib/style.css',
 				'lib/test-lib.js'
 			]
-		).done(function($, mobile, Test) {			// callback
+		).done(function($, noop, Test) {					// callback
+			console.log("done.", arguments);
 			Test && Test();
 
 			$ && $('body').addClass('success');

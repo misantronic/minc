@@ -22,7 +22,7 @@ Minc = function(a, b) {
 		};
 
 		try {
-			!function l(s, d, o) {
+			!function l(s, d, o, t, I) {
 				// AMD define()
 				(w.define =
 					/**
@@ -41,11 +41,11 @@ Minc = function(a, b) {
 						if(L=y.length)
 							for(d=L, o = []; d--;) { 		// parse dependencies
 								for(g=m.length; g--;) 		// parse modules
-									if(y[d] == m[g].i)
+									if(m[g] && y[d] == m[g].i)
 										o.push(m[g].m());
 
 								L != o.length && 			// validate dependencies
-								c && c.log("Modules missing", y)
+								c && c.log("Missing", y)
 
 								M[i] = z.apply(w, o);		// assign module callback
 							}
@@ -54,15 +54,32 @@ Minc = function(a, b) {
 					}
 				).amd = 1;
 
-				// load script
+				// load
+				t = s.indexOf(".css") > -1 ? 'link' : 'script';
 				with(document)
-					(d=createElement('script')).src = s.replace(/https*:/, ""),
-					d.onload = d.onreadystatechange = d.onerror = function(e) {
-						(e = e || this).type == 'error' && b[i]
-							? l(b[i])
-							: e.type == 'load' || e[g] == 'loaded' || e[g] == 'complete' ?
-							a[++i] ? l(a[i]) : r && r.apply(_, M) : 0
-					},
+					(d=createElement(t))[t == 'link' ? 'href' : 'src'] = s.replace(/https*:/, ""),
+					t == 'link'
+
+						?
+
+						// load CSS
+						(I = setInterval(function() {
+							if(d.sheet && d.sheet.cssRules && d.sheet.cssRules[0] || d.styleSheet && d.styleSheet.rules && d.styleSheet.rules[0]) {
+								a[++i] ? l(a[i]) : r && r.apply(_, M);
+								clearInterval(I)
+							}
+						}, 1)) && (d.rel = 'stylesheet')
+
+						:
+
+						// load JS
+						d.onload = d.onreadystatechange = d.onerror = function(e) {
+							(e = e || this).type == 'error' && b[i]
+								? l(b[i])
+								: e.type == 'load' || e[g] == 'loaded' || e[g] == 'complete' ?
+								a[++i] ? l(a[i]) : r && r.apply(_, M) : 0
+						},
+
 					getElementsByTagName('head')[0].appendChild(d)
 			}(a[i=0]);
 		} catch(e) { c && c.log(e) }
