@@ -60,8 +60,8 @@
 						t == 'link' ?
 
 						// load CSS
-						(I = setInterval(function() {
-							if(d.sheet && d.sheet.cssRules && d.sheet.cssRules[0] || d.styleSheet && d.styleSheet.rules && d.styleSheet.rules[0]) {
+						(I = setInterval(function(q) {
+							if(d.sheet && d.sheet.cssRules && d.sheet.cssRules[0] || d[q="styleSheet"] && d[q].rules && d[q].rules[0]) {
 								a[++i] ? l(a[i]) : r && r.apply(_, M);
 								clearInterval(I)
 							}
