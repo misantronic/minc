@@ -27,6 +27,12 @@ Minc(
 });
 ```
 
+#### Install with bower
+
+```bash
+$ bower install minc
+```
+
 #### Cross-browser
 
 minc.js runs in **every browser** on **every device** (tested with all devices/browsers at [browserstack.com](http://www.browserstack.com/screenshots)).
