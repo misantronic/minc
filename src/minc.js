@@ -7,8 +7,7 @@
  */
 Minc = function(a, b) {
 	return (function _(w) {
-		var r, i, L,
-			g = "readyState",
+		var r, i, L, g,
 			m = [],
 			M = [],
 			c = w.console;
@@ -68,7 +67,7 @@ Minc = function(a, b) {
 								a[++i] ? l(a[i]) : r && r.apply(_, M);
 								clearInterval(I)
 							}
-						}, 1)) && (d.rel = 'stylesheet')
+						}, 5)) && (d.rel = 'stylesheet')
 
 						:
 
@@ -76,7 +75,7 @@ Minc = function(a, b) {
 						d.onload = d.onreadystatechange = d.onerror = function(e) {
 							(e = e || this).type == 'error' && b[i]
 								? l(b[i])
-								: e.type == 'load' || e[g] == 'loaded' || e[g] == 'complete' ?
+								: e.type == 'load' || e[g="readyState"] == 'loaded' || e[g] == 'complete' ?
 								a[++i] ? l(a[i]) : r && r.apply(_, M) : 0
 						},
 
