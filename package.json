@@ -1,7 +1,7 @@
 {
   "name": "minc.js",
   "version": "0.5.0",
-  "description": "A tiny cross-browser script- and module-loader.",
+  "description": "A tiny cross-browser css, javascript- and module-loader.",
   "main": "minc.min.js",
   "scripts": {
     "test": "dalek test/tests.js"
