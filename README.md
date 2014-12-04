@@ -20,7 +20,7 @@ Minc(
 		'src/myCoolApp.min.js',
 		'src/my-cool-css.min.css'
 	]
-).done(function($, myApp) {					// callback, when scripts are being loaded
+).done(function($, myApp) {					// callback, when files are loaded
 	// entry point
 	$('body').addClass('success');
 	myApp.init();
