@@ -10,12 +10,12 @@
 		Minc(
 			[										// load a bunch of scripts
 				'//code.jquery.com/jquery-1.11.0.js',
-				'lib/style.css',
-				'lib/test-lib.js'
+				'lib/test-lib.js',
+				'lib/style.css'
 			]
-		).done(function($, noop, Test) {					// callback
-			console.log("done.", arguments);
-			Test && Test();
+		).done(function($, Test) {					// callback
+			console.log("done.");
+			Test && Test.init();
 
 			$ && $('body').addClass('success');
 		});
