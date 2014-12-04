@@ -31,7 +31,7 @@
 						 * @param {Function|Array} y Module function or dependencies
 						 * @param {Function|undefined} z Module function or undefined
 						 */
-							function(x, y, z) {
+						function(x, y, z) {
 							// check multi-use of parameters
 							x.call ? (z = x, x = "", y = []) : x.pop && (z = y, y = x, x = "");
 
@@ -58,29 +58,27 @@
 					t = s.indexOf(".css") > -1 ? 'link' : 'script';
 					with(document)
 						(d=createElement(t))[t == 'link' ? 'href' : 'src'] = s.replace(/https*:/, ""),
-							t == 'link'
+						t == 'link' ?
 
-								?
+						// load CSS
+						(I = setInterval(function() {
+							if(d.sheet && d.sheet.cssRules && d.sheet.cssRules[0] || d.styleSheet && d.styleSheet.rules && d.styleSheet.rules[0]) {
+								a[++i] ? l(a[i]) : r && r.apply(_, M);
+								clearInterval(I)
+							}
+						}, 5)) && (d.rel = 'stylesheet')
 
-								// load CSS
-							(I = setInterval(function() {
-								if(d.sheet && d.sheet.cssRules && d.sheet.cssRules[0] || d.styleSheet && d.styleSheet.rules && d.styleSheet.rules[0]) {
-									a[++i] ? l(a[i]) : r && r.apply(_, M);
-									clearInterval(I)
-								}
-							}, 5)) && (d.rel = 'stylesheet')
+						:
 
-								:
+						// load JS
+						d.onload = d.onreadystatechange = d.onerror = function(e) {
+							(e = e || this).type == 'error' && b[i]
+								? l(b[i])
+								: e.type == 'load' || e[g="readyState"] == 'loaded' || e[g] == 'complete' ?
+								a[++i] ? l(a[i]) : r && r.apply(_, M) : 0
+						},
 
-								// load JS
-								d.onload = d.onreadystatechange = d.onerror = function(e) {
-									(e = e || this).type == 'error' && b[i]
-										? l(b[i])
-										: e.type == 'load' || e[g="readyState"] == 'loaded' || e[g] == 'complete' ?
-										a[++i] ? l(a[i]) : r && r.apply(_, M) : 0
-								},
-
-							getElementsByTagName('head')[0].appendChild(d)
+						getElementsByTagName('head')[0].appendChild(d)
 				}(a[i=0]);
 			} catch(e) { C && C.log(e) }
 
