@@ -4,7 +4,7 @@
   "description": "A tiny cross-browser css, javascript- and module-loader.",
   "main": "minc.min.js",
   "scripts": {
-    "test": "dalek test/tests.js"
+    "test": "php -f tests/test.php"
   },
   "repository": {
     "type": "git",
