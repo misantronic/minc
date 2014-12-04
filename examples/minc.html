@@ -14,7 +14,8 @@
 				'lib/style.css'
 			]
 		).done(function($, Test) {					// callback
-			console.log("done.");
+			window.console && console.log("done.");
+
 			Test && Test.init();
 
 			$ && $('body').addClass('success');
