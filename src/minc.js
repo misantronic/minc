@@ -55,9 +55,8 @@
 					).amd = 1;
 
 					// load
-					t = s.indexOf(".css") > -1 ? 'link' : 'script';
 					with(document)
-						(d=createElement(t))[t == 'link' ? 'href' : 'src'] = s.replace(/https*:/, ""),
+						(d=createElement(t = s.indexOf(".css") > -1 ? 'link' : 'script'))[t == 'link' ? 'href' : 'src'] = s.replace(/https*:/, ""),
 						t == 'link' ?
 
 						// load CSS
