@@ -2,7 +2,7 @@
 
 > A tiny cross-browser css, javascript- and module-loader.
 
-minc.js is a lightweight css, javascript- and module-loader (~770 bytes, minified and gzipped) making it super-easy to dynamically embed your css-files, javascripts and/or initialize custom modules.
+minc.js is a lightweight css, javascript- and module-loader (~800 bytes, minified and gzipped) making it super-easy to dynamically embed your css-files, javascripts and/or initialize custom modules.
 You simply pass an array with your files to `Minc`. That's it.<br>
 If you load your files via a CDN, you might optionally add another array with fallbacks.<br>
  
