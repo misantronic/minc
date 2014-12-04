@@ -10,7 +10,7 @@ Minc = function(a, b) {
 		var r, i, L, g,
 			m = [],
 			M = [],
-			c = w.console;
+			C = w.console;
 
 		/**
 		 * Success method when all scripts are loaded
@@ -44,7 +44,7 @@ Minc = function(a, b) {
 										o.push(m[g].m());
 
 								L != o.length && 			// validate dependencies
-								c && c.log("Missing", y)
+								C && C.log("Missing", y)
 
 								M[i] = z.apply(w, o);		// assign module callback
 							}
@@ -81,7 +81,7 @@ Minc = function(a, b) {
 
 					getElementsByTagName('head')[0].appendChild(d)
 			}(a[i=0]);
-		} catch(e) { c && c.log(e) }
+		} catch(e) { C && C.log(e) }
 
 		return _
 	})(window)
