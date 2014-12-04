@@ -92,7 +92,7 @@
 
 	w.define && define.amd
 		?
-			define(function() {
+			define('Minc', function() {
 				return $
 			})
 		:
