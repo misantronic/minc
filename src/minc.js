@@ -5,10 +5,10 @@
  * @returns {Function}
  * @constructor
  */
-Minc = function(a, b) {
+(Minc = function(a, b) {
 	return (function _(w) {
 		var r, i, L, g,
-			m = [],
+			m = Minc.m,
 			M = [],
 			C = w.console;
 
@@ -35,7 +35,7 @@ Minc = function(a, b) {
 						x.call ? (z = x, x = "", y = []) : x.pop && (z = y, y = x, x = "");
 
 						// save module
-						m[i] = { i: x, d: y, m: z };
+						m.push({ i: x, d: y, m: z });
 
 						if(L=y.length)
 							for(d=L, o = []; d--;) { 		// parse dependencies
@@ -85,4 +85,4 @@ Minc = function(a, b) {
 
 		return _
 	})(window)
-};
+}).m = [];
