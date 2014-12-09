@@ -56,8 +56,8 @@
 
 					// load
 					with(document)
-						(d=createElement(t = s.indexOf(".css") > -1 ? 'link' : 'script'))[t == 'link' ? 'href' : 'src'] = s.replace(/https*:/, ""),
-						t == 'link' ?
+						(d=createElement(t = s.substr(-4) == '.css' ? "link" : "script"))[t == "link" ? "href" : "src"] = s.replace(/https*:/, ""),
+						t == "link" ?
 
 						// load CSS
 						(I = setInterval(function(q) {
@@ -65,19 +65,19 @@
 								a[++i] ? l(a[i]) : r && r.apply(_, M);
 								clearInterval(I)
 							}
-						}, 5)) && (d.rel = 'stylesheet')
+						}, 5)) && (d.rel = "stylesheet")
 
 						:
 
 						// load JS
 						d.onload = d.onreadystatechange = d.onerror = function(e) {
-							(e = e || this).type == 'error' && b[i]
+							(e = e || this).type == "error" && b[i]
 								? l(b[i])
-								: e.type == 'load' || e[g="readyState"] == 'loaded' || e[g] == 'complete' ?
+								: e.type == "load" || e[g="readyState"] == "loaded" || e[g] == "complete" ?
 								a[++i] ? l(a[i]) : r && r.apply(_, M) : 0
 						},
 
-						getElementsByTagName('head')[0].appendChild(d)
+						getElementsByTagName("head")[0].appendChild(d)
 				}(a[i=0]);
 			} catch(e) { C && C.log(e) }
 
@@ -89,10 +89,10 @@
 
 	w.define && define.amd
 		?
-			define('Minc', function() {
+			define("Minc", function() {
 				return $
 			})
 		:
-			w['Minc'] = $
+			w["Minc"] = $
 
 })(window);
