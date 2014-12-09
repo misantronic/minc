@@ -33,7 +33,7 @@
 						 */
 						function(x, y, z) {
 							// check multi-use of parameters
-							x.call ? (z = x, x = "", y = []) : x.pop && (z = y, y = x, x = "");
+							x.call ? (z = x, x = "", y = []) : x.pop ? (z = y, y = x, x = "") : y.call && (z = y, y = []);
 
 							// save module
 							m.push({ i: x, d: y, m: z });
