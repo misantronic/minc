@@ -22,7 +22,7 @@
 			};
 
 			try {
-				!function l(s, d, o, t, I) {
+				!function l(s, d, o, t, I, j) {
 					// AMD define()
 					(w.define =
 						/**
@@ -32,6 +32,7 @@
 						 * @param {Function|undefined} z Module function or undefined
 						 */
 						function(x, y, z) {
+							j = 1;
 							// check multi-use of parameters
 							x.call ? (z = x, x = "", y = []) : x.pop ? (z = y, y = x, x = "") : y.call && (z = y, y = []);
 
@@ -54,6 +55,8 @@
 						}
 					).amd = 1;
 
+					if(!w.module) (module = {}) && (module.exports = {});
+
 					// load
 					with(document)
 						(d=createElement(t = s.substr(-4) == '.css' ? "link" : "script"))[t == "link" ? "href" : "src"] = s.replace(/https*:/, ""),
@@ -73,8 +76,9 @@
 						d.onload = d.onreadystatechange = d.onerror = function(e) {
 							(e = e || this).type == "error" && b[i]
 								? l(b[i])
-								: e.type == "load" || e[g="readyState"] == "loaded" || e[g] == "complete" ?
-								a[++i] ? l(a[i]) : r && r.apply(_, M) : 0
+								: e.type == "load" || e[g="readyState"] == "loaded" || e[g] == "complete"
+								? (!j && w.module.exports.call && (M[i] = module.exports) || 1) && (a[++i] ? l(a[i]) : r && r.apply(_, M))
+								: 0
 						},
 
 						getElementsByTagName("head")[0].appendChild(d)

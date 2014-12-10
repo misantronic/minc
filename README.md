@@ -37,7 +37,8 @@ $ bower install minc
 
 minc.js runs in **every browser** on **every device** (tested with all devices/browsers at [browserstack.com](http://www.browserstack.com/screenshots)).
 
-#### AMD (Asynchronous Module Definition)
+#### Modular JavaScript
 
-minc.js follows the basic AMD-concept, thus you might use your own modules.<br>
-[See an example-module](https://github.com/misantronic/minc/blob/master/examples/lib/test-lib.js) and [read more about AMD](http://addyosmani.com/writing-modular-js/).
+minc.js supports the basics of the AMD- and CommonJS-structures, thus you might use your own modules.<br>
+See an [AMD example-module](https://github.com/misantronic/minc/blob/master/examples/lib/amd-lib.js) or [CommonJS example-module](https://github.com/misantronic/minc/blob/master/examples/lib/commonjs-lib.js).<br>  
+If you're not familiar with modular JavaScript, [read this](http://addyosmani.com/writing-modular-js/).

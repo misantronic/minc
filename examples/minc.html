@@ -7,16 +7,17 @@
 <body>
 	<script src="../src/minc.js"></script>
 	<script>
-		Minc(
-			[										// load a bunch of scripts
-				'//code.jquery.com/jquery-1.11.0.js',
-				'lib/test-lib.js',
-				'lib/style.css'
-			]
-		).done(function($, Test) {					// callback
+		Minc([	// load a bunch of scripts
+			'//code.jquery.com/jquery-1.11.0.js',
+			'lib/amd-lib.js',
+			'lib/commonjs-lib.js',
+			'lib/style.css'
+		]).done(function($, AMDLib, CommonJSLib) {	// callback
 			window.console && console.log("done.");
 
-			Test && Test.init();
+			AMDLib && AMDLib.init();
+
+			CommonJSLib && CommonJSLib.init();
 
 			$ && $('body').addClass('success');
 		});

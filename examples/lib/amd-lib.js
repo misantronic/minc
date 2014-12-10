@@ -3,7 +3,7 @@ if(window.define && define.amd) {
 		return (function _($) {
 
 			_.init = function() {
-				$('body').html(navigator.userAgent);
+				$('body').append(navigator.userAgent);
 			};
 
 			return _
