@@ -7,7 +7,7 @@
 	 * @constructor
 	 */
 	function $(a, b) {
-		return (function _() {
+		return (function _(j, k) {
 			var r, i, L, g,
 				m = Minc.m,
 				M = [],
@@ -21,8 +21,17 @@
 				r = c
 			};
 
+			if(!w.module) module = {};
+			Object[k="defineProperty"] && Object[k](module, "exports", {
+				get: function() { return {} },
+				set: function(v) {
+					!j && (M[i] = v)
+				}
+			});
+
 			try {
-				!function l(s, d, o, t, I, j) {
+				!function l(s, d, o, t, I) {
+					j = 0;
 					// AMD define()
 					(w.define =
 						/**
@@ -55,9 +64,6 @@
 						}
 					).amd = 1;
 
-					if(!w.module) module = {};
-					module.exports = {};
-
 					// load
 					with(document)
 						(d=createElement(t = s.substr(-4) == '.css' ? "link" : "script"))[t == "link" ? "href" : "src"] = s.replace(/https*:/, ""),
@@ -78,7 +84,7 @@
 							(e = e || this).type == "error" && b[i]
 								? l(b[i])
 								: e.type == "load" || e[g="readyState"] == "loaded" || e[g] == "complete"
-								? (!j && w.module.exports.call && (M[i] = module.exports) || 1) && (a[++i] ? l(a[i]) : r && r.apply(_, M))
+								? a[++i] ? l(a[i]) : r && r.apply(_, M)
 								: 0
 						},
 
