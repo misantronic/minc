@@ -55,7 +55,8 @@
 						}
 					).amd = 1;
 
-					if(!w.module) (module = {}) && (module.exports = {});
+					if(!w.module) module = {};
+					module.exports = {};
 
 					// load
 					with(document)
