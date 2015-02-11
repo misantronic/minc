@@ -23,13 +23,13 @@
 			};
 
 			// CommonJS
-			if(!w.module) module = {};
-			Object[k="defineProperty"] && Object[k](module, "exports", {
-				get: function() { return {} },
-				set: function(v) {
-					!j && (M[i] = v)
-				}
-			});
+			//if(!w.module) module = {};
+			//Object[k="defineProperty"] && Object[k](module, "exports", {
+			//	get: function() { return {} },
+			//	set: function(v) {
+			//		!j && (M[i] = v)
+			//	}
+			//});
 
 			!function l(s, d, o, t, I) {
 				j = 0;
