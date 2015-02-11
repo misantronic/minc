@@ -72,7 +72,12 @@
 
 					// load CSS
 					(I = setInterval(function(q) {
-						if(d.sheet && d.sheet.cssRules && d.sheet.cssRules[0] || d[q="styleSheet"] && d[q].rules && d[q].rules[0]) {
+						try {
+							if(d.sheet && d.sheet.cssRules && d.sheet.cssRules[0] || d[q="styleSheet"] && d[q].rules && d[q].rules[0]) {
+								try { a[++i] ? l(a[i]) : r && r.apply(_, M); } catch(e) {}
+								clearInterval(I)
+							}
+						} catch(e) {
 							try { a[++i] ? l(a[i]) : r && r.apply(_, M); } catch(e) {}
 							clearInterval(I)
 						}
