@@ -7,6 +7,7 @@
 	 * @constructor
 	 */
 	function $(a, b) {
+		b = b || [];
 		return (function _(j, k) {
 			var r, i, L, g,
 				m = Minc.m,
@@ -21,6 +22,7 @@
 				r = c
 			};
 
+			// CommonJS
 			if(!w.module) module = {};
 			Object[k="defineProperty"] && Object[k](module, "exports", {
 				get: function() { return {} },
