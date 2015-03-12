@@ -1,6 +1,6 @@
 {
   "name": "minc.js",
-  "version": "0.6.6",
+  "version": "0.6.7",
   "description": "A tiny cross-browser css, javascript- and module-loader.",
   "main": "minc.min.js",
   "scripts": {
