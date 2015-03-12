@@ -73,7 +73,7 @@
 							// load CSS
 						(I = setInterval(function(q) {
 							try {
-								if(d.sheet && d.sheet.cssRules && d.sheet.cssRules[0] || d[q="styleSheet"] && d[q].rules && d[q].rules[0]) {
+								if(d.sheet || d[q="styleSheet"] && d[q].rules && d[q].rules[0]) {
 									try { a[++i] ? l(a[i]) : r && r.apply(_, M); } catch(e) {}
 									clearInterval(I)
 								}
