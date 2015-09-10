@@ -39,8 +39,8 @@ minc.js runs in **every browser** on **every device** (tested with all devices/b
 
 #### Modular JavaScript
 
-minc.js supports the basics of the AMD- and CommonJS-structures, thus you might use your own modules.<br>
-See an [AMD](https://github.com/misantronic/minc/blob/master/examples/lib/amd-lib.js) or a [CommonJS](https://github.com/misantronic/minc/blob/master/examples/lib/commonjs-lib.js) example-module.<br>  
+minc.js supports the basics of the AMD-structures, thus you might use your own modules.<br>
+See an [AMD](https://github.com/misantronic/minc/blob/master/examples/lib/amd-lib.js) example-module.<br>  
 If you're not familiar with modular JavaScript, [read this](http://addyosmani.com/writing-modular-js/).
 
 #### AMD Issues
