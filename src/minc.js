@@ -3,12 +3,14 @@
 	 * minc.js
 	 * @param {Array} a An Array containing the URLs/Paths to your scripts
 	 * @param {Array} [b] An Array containing the URLs/Paths to you fallback-scripts
+	 * @param {Array} [k] Optional context
 	 * @returns {Function}
 	 * @constructor
 	 */
-	function $(a, b) {
+	function $(a, b, k) {
 		b = b || [];
-		return (function _(j, k) {
+		w = k || w;
+		return (function _(j) {
 			var r, i, L, g,
 				m = Minc.m,
 				M = [],
@@ -21,15 +23,6 @@
 			_.done = function(c) {
 				r = c
 			};
-
-			// CommonJS
-			//if(!w.module) module = {};
-			//Object[k="defineProperty"] && Object[k](module, "exports", {
-			//	get: function() { return {} },
-			//	set: function(v) {
-			//		!j && (M[i] = v)
-			//	}
-			//});
 
 			!function l(s, d, o, t, I) {
 				j = 0;
@@ -103,6 +96,6 @@
 
 	$.m = [];
 
-	w["Minc"] = $
+	Minc = $
 
 })(window);
