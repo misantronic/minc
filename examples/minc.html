@@ -10,14 +10,11 @@
 		Minc([	// load a bunch of files
 			'//code.jquery.com/jquery-1.11.0.js',
 			'lib/amd-lib.js',
-			'lib/commonjs-lib.js',
 			'lib/style.css'
-		]).done(function($, AMDLib, CommonJSLib) {	// callback
+		]).done(function($, AMDLib) {	// callback
 			window.console && console.log("done.");
 
 			AMDLib && AMDLib.init();
-
-			CommonJSLib && CommonJSLib.init();
 
 			$ && $('body').addClass('success');
 		});
