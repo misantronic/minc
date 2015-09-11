@@ -10,6 +10,7 @@
 	function $(a, b, k) {
 		b = b || [];
 		w = k || w;
+
 		return (function _(j) {
 			var r, i, L, g,
 				m = Minc.m,
@@ -34,7 +35,7 @@
 					 * @param {Function|Array} y Module function or dependencies
 					 * @param {Function|undefined} z Module function or undefined
 					 */
-						function(x, y, z) {
+					function(x, y, z) {
 						j = 1;
 						// check multi-use of parameters
 						x.call ? (z = x, x = "", y = []) : x.pop ? (z = y, y = x, x = "") : y.call && (z = y, y = []);
@@ -49,7 +50,7 @@
 										o.push(m[g].m());
 
 								L != o.length && 			// validate dependencies
-								C && C.log("Missing", y)
+								C && C.log("Missing", y);
 
 								M.push(z.apply(w, o));		// assign module callback
 							}
@@ -60,21 +61,23 @@
 
 				// load
 				with(document)
-					(d=createElement(t = s.substr(-4) == '.css' ? "link" : "script"))[t == "link" ? "href" : "src"] = s.replace(/https*:/, ""),
-						t == "link" ?
+					(d=createElement(t = ~s.indexOf('.css') ? "link" : "script"))[t == "link" ? "href" : "src"] = s.replace(/https*:/, ""),
+						t == "link"
+
+							?
 
 							// load CSS
-						(I = setInterval(function(q) {
-							try {
-								if(d.sheet || d[q="styleSheet"] && d[q].rules && d[q].rules[0]) {
+							(I = setInterval(function(q) {
+								try {
+									if(d.sheet || d[q="styleSheet"] && d[q].rules && d[q].rules[0]) {
+										try { a[++i] ? l(a[i]) : r && r.apply(_, M); } catch(e) {}
+										clearInterval(I)
+									}
+								} catch(e) {
 									try { a[++i] ? l(a[i]) : r && r.apply(_, M); } catch(e) {}
 									clearInterval(I)
 								}
-							} catch(e) {
-								try { a[++i] ? l(a[i]) : r && r.apply(_, M); } catch(e) {}
-								clearInterval(I)
-							}
-						}, 5)) && (d.rel = "stylesheet")
+							}, 5)) && (d.rel = "stylesheet")
 
 							:
 
